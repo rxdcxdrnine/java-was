@@ -12,7 +12,11 @@ public class Filter {
     public Response handle(Request request) {
 
         // TODO: 로그인이 필요한 path 의 지정 방법
-        if (!request.getPath().endsWith(".html")
+        if (request.getPath().endsWith(".css")
+                || request.getPath().endsWith(".js")
+                || request.getPath().endsWith(".woff")
+                || request.getPath().endsWith(".ico")
+
                 || request.getPath().equals("/user/login.html")
                 || request.getPath().equals("/user/login_failed.html")
                 || request.getPath().equals("/user/form.html")
