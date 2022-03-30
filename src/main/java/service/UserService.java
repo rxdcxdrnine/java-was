@@ -3,6 +3,9 @@ package service;
 import db.DataBase;
 import model.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserService {
 
     private static UserService userService;
@@ -36,5 +39,9 @@ public class UserService {
             throw new IllegalArgumentException("패스워드를 다시 확인해주세요.");
         }
         return user;
+    }
+
+    public List<User> findUsers() {
+        return new ArrayList<>(DataBase.findAll());
     }
 }
