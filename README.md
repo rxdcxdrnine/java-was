@@ -94,3 +94,21 @@ Java Web Server Project for CodeSquad Members 2022
 </div>
 </details>
 
+<br/>
+<details>
+<summary>🖐 웹서버 5 단계 - 쿠키를 이용한 로그인 구현</summary>
+<div markdown="1">
+<br/>
+
+### 기능요구사항
+
+- [X] 접근하고 있는 사용자가 “로그인” 상태일 경우 http://localhost:8080/user/list 에서 사용자 목록을 출력한다.
+- [X] 만약 로그인하지 않은 상태라면 로그인 페이지(login.html)로 이동한다.
+
+### 프로그래밍 요구사항
+
+- [X] StringBuilder를 활용해 사용자 목록을 출력하는 html 을 동적으로 생성한 후 응답으로 보낸다.
+
+<br/>
+</div>
+</details>
