@@ -1,6 +1,6 @@
 package service;
 
-import db.DataBase;
+import db.UserDataBase;
 import model.User;
 
 import java.util.ArrayList;
@@ -21,16 +21,16 @@ public class UserService {
     }
 
     public void register(User user) {
-        DataBase.findUserById(user.getUserId())
+        UserDataBase.findUserById(user.getUserId())
                 .ifPresent(findUser -> {
                     throw new IllegalArgumentException("중복된 유저입니다.");
                 });
 
-        DataBase.addUser(user);
+        UserDataBase.addUser(user);
     }
 
     public User login(String userId, String password) {
-        User user = DataBase.findUserById(userId)
+        User user = UserDataBase.findUserById(userId)
                 .orElseThrow(() -> {
                     throw new IllegalArgumentException("아이디를 다시 확인해주세요.");
                 });
@@ -42,6 +42,6 @@ public class UserService {
     }
 
     public List<User> findUsers() {
-        return new ArrayList<>(DataBase.findAll());
+        return new ArrayList<>(UserDataBase.findAll());
     }
 }

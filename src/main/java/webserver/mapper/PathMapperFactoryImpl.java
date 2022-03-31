@@ -14,6 +14,7 @@ public class PathMapperFactoryImpl implements PathMapperFactory {
             put(new Pair("POST", "/user/login"), new UserLoginHandler());
             put(new Pair("GET", "/user/logout"), new UserLogoutHandler());
             put(new Pair("GET", "/user/list"), new UserListHandler());
+            put(new Pair("POST", "/article"), new ArticleCreateHandler());
         }};
         return new PathMapper(handlerMap, new DefaultFileHandler());
     }

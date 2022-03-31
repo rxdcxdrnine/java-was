@@ -21,6 +21,8 @@ public class Filter {
                 || request.getPath().equals("/user/login_failed.html")
                 || request.getPath().equals("/user/form.html")
                 || request.getPath().equals("/index.html")
+
+                || request.getPath().equals("/user/create")
         ) {
             return null;
         }
@@ -35,7 +37,7 @@ public class Filter {
             return getLoginFormRedirect();
         }
 
-        // TODO: request 객체에 유저 정보를 저장
+        request.setSessionUser(user);
         return null;
     }
 
