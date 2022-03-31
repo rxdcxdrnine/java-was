@@ -44,5 +44,4 @@ public class Filter {
                 .addHeader("Location", "http://localhost:8080/user/login.html")
                 .build();
     }
-
 }
