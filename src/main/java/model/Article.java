@@ -1,17 +1,17 @@
 package model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Article {
 
-    private String writer;
-    private String content;
-    private LocalDate createdDate;
+    private final String writer;
+    private final String content;
+    private final LocalDateTime createdDate;
 
     public Article(String writer, String content) {
         this.writer = writer;
         this.content = content;
-        this.createdDate = LocalDate.now();
+        this.createdDate = LocalDateTime.now();
     }
 
     public String getWriter() {
@@ -22,7 +22,7 @@ public class Article {
         return content;
     }
 
-    public LocalDate getCreatedDate() {
+    public LocalDateTime getCreatedDate() {
         return createdDate;
     }
 }

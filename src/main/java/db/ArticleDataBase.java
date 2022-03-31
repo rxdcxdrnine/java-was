@@ -1,10 +1,11 @@
 package db;
 
 import com.google.common.collect.Maps;
-import model.Article;
-
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Map;
+import java.util.stream.Collectors;
+import model.Article;
 
 public class ArticleDataBase {
 
@@ -15,6 +16,9 @@ public class ArticleDataBase {
     }
 
     public static Collection<Article> findAll() {
-        return articles.values();
+        return articles.values().stream()
+            .sorted(Comparator.comparing(Article::getCreatedDate).reversed())
+            .limit(5)
+            .collect(Collectors.toList());
     }
 }

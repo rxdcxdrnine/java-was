@@ -1,5 +1,11 @@
 package webserver.handler;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 import model.Article;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,13 +13,6 @@ import service.ArticleService;
 import webserver.Request;
 import webserver.Response;
 import webserver.Status;
-
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
 
 public class ArticleListHandler implements PathHandler {
 
@@ -53,15 +52,15 @@ public class ArticleListHandler implements PathHandler {
 
     private String toHtmlTag(int index, Article article) {
         return String.format(
-                "<tr>" +
-                        "<th scope=\"row\">%d</th>" +
-                        "<td>%s</td>" +
-                        "<td>%s</td>" +
-                        "<td>%s</td>" +
-                        "</tr>",
-                index + 1,
-                article.getCreatedDate(),
-                article.getWriter(),
-                article.getContent());
+            "<tr>" +
+                "<th scope=\"row\">%d</th>" +
+                "<td>%s</td>" +
+                "<td>%s</td>" +
+                "<td>%s</td>" +
+                "</tr>",
+            index + 1,
+            article.getCreatedDate().toLocalDate(),
+            article.getWriter(),
+            article.getContent());
     }
 }
