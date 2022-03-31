@@ -20,9 +20,10 @@ public class Filter {
                 || request.getPath().equals("/user/login.html")
                 || request.getPath().equals("/user/login_failed.html")
                 || request.getPath().equals("/user/form.html")
-                || request.getPath().equals("/index.html")
 
+                || request.getPath().equals("/")
                 || request.getPath().equals("/user/create")
+                || request.getPath().equals("/user/login")
         ) {
             return null;
         }

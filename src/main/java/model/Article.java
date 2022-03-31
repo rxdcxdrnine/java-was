@@ -13,4 +13,16 @@ public class Article {
         this.content = content;
         this.createdDate = LocalDate.now();
     }
+
+    public String getWriter() {
+        return writer;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public LocalDate getCreatedDate() {
+        return createdDate;
+    }
 }
