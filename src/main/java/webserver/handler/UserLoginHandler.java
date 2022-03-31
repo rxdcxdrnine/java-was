@@ -23,7 +23,7 @@ public class UserLoginHandler implements PathHandler {
             String sessionId = session.setUser(user);
 
             return new Response.Builder(Status.FOUND)
-                    .addHeader("Location", "http://localhost:8080/index.html")
+                    .addHeader("Location", "http://localhost:8080/")
                     .addHeader("Set-Cookie", "sessionId=" + sessionId + "; Path=/")
                     .build();
 

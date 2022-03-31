@@ -1,6 +1,5 @@
 package webserver.handler;
 
-import db.ArticleDataBase;
 import model.Article;
 import model.User;
 import service.ArticleService;
@@ -21,7 +20,7 @@ public class ArticleCreateHandler implements PathHandler {
         articleService.write(article);
 
         return new Response.Builder(Status.FOUND)
-                .addHeader("Location", "http://localhost:8080/index.html")
+                .addHeader("Location", "http://localhost:8080/")
                 .build();
     }
 }
