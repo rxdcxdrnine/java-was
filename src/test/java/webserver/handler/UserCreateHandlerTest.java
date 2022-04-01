@@ -46,7 +46,7 @@ class UserCreateHandlerTest {
 
         // then
         then(response.getStatus()).isEqualTo(Status.FOUND);
-        then(response.getHeader()).contains(Map.entry("Location", "http://localhost:8080/"));
+        then(response.getHeader()).contains(Map.entry("Location", "/"));
     }
 
 }
