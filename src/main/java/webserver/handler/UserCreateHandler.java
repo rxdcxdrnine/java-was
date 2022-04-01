@@ -25,12 +25,12 @@ public class UserCreateHandler extends AbstractPathHandler {
 
             String sessionId = session.setUser(user);
 
-            return Response.sendRedirect("http://localhost:8080/")
+            return Response.sendRedirect("/")
                 .addSession(sessionId, false)
                 .build();
 
         } catch (IllegalArgumentException e) {
-            return Response.sendRedirect("http://localhost:8080/user/form.html")
+            return Response.sendRedirect("/user/form.html")
                 .build();
         }
     }

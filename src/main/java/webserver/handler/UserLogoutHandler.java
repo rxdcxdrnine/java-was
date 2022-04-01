@@ -9,7 +9,7 @@ public class UserLogoutHandler extends AbstractPathHandler {
     public Response doGet(Request request) {
         String sessionId = request.getCookieValue("sessionId");
 
-        return Response.sendRedirect("http://localhost:8080/")
+        return Response.sendRedirect("/")
             .addSession(sessionId, true)
             .build();
     }

@@ -44,7 +44,7 @@ public class Filter {
 
     public Response getLoginFormRedirect() {
         return new Response.Builder(Status.FOUND)
-                .addHeader("Location", "http://localhost:8080/user/login.html")
+            .addHeader("Location", "/user/login.html")
                 .build();
     }
 }

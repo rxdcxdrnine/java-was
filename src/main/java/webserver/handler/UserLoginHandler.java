@@ -21,12 +21,12 @@ public class UserLoginHandler extends AbstractPathHandler {
 
             String sessionId = session.setUser(user);
 
-            return Response.sendRedirect("http://localhost:8080/")
+            return Response.sendRedirect("/")
                 .addSession(sessionId, false)
                 .build();
 
         } catch (IllegalArgumentException e) {
-            return Response.sendRedirect("http://localhost:8080/user/login_failed.html")
+            return Response.sendRedirect("/user/login_failed.html")
                 .build();
         }
     }

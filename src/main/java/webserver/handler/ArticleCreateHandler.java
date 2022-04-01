@@ -18,7 +18,7 @@ public class ArticleCreateHandler extends AbstractPathHandler {
         Article article = new Article(user.getName(), request.getBodyValue("content"));
         articleService.write(article);
 
-        return Response.sendRedirect("http://localhost:8080/")
+        return Response.sendRedirect("/")
             .build();
     }
 }
