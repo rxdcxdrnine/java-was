@@ -1,5 +1,11 @@
 package webserver.handler;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 import model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,13 +13,6 @@ import service.UserService;
 import webserver.Request;
 import webserver.Response;
 import webserver.Status;
-
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
 
 public class UserListHandler implements PathHandler {
 
@@ -26,6 +25,9 @@ public class UserListHandler implements PathHandler {
     public Response handle(Request request) {
         List<User> users = userService.findUsers();
 
+        // TODO: template engine 에 맞게 바꾸기
+        // model.addAttribute("user", user);
+        // return "view.html";
         StringBuilder sb = new StringBuilder();
         for (int ind = 0; ind < users.size(); ind++) {
             sb.append(toHtmlTag(ind, users.get(ind)));
@@ -39,10 +41,9 @@ public class UserListHandler implements PathHandler {
 
             byte[] body = content.getBytes(StandardCharsets.UTF_8);
             return new Response.Builder(Status.OK)
-                    .addHeader("Content-Type", request.getContentType().getMime())
-                    .addHeader("Content-Length", String.valueOf(body.length))
-                    .body(body)
-                    .build();
+                .addContentType(request.getContentType())
+                .body(body)
+                .build();
 
         } catch (IOException e) {
             log.error(e.getMessage());
@@ -53,16 +54,16 @@ public class UserListHandler implements PathHandler {
 
     private String toHtmlTag(int index, User user) {
         return String.format(
-                "<tr>" +
-                        "<th scope=\"row\">%d</th>" +
-                        "<td>%s</td>" +
-                        "<td>%s</td>" +
-                        "<td>%s</td>" +
-                        "<td><a href=\"#\" class=\"btn btn-success\" role=\"button\">수정</a></td>" +
-                        "</tr>",
-                index + 1,
-                user.getUserId(),
-                user.getName(),
-                user.getEmail());
+            "<tr>" +
+                "<th scope=\"row\">%d</th>" +
+                "<td>%s</td>" +
+                "<td>%s</td>" +
+                "<td>%s</td>" +
+                "<td><a href=\"#\" class=\"btn btn-success\" role=\"button\">수정</a></td>" +
+                "</tr>",
+            index + 1,
+            user.getUserId(),
+            user.getName(),
+            user.getEmail());
     }
 }

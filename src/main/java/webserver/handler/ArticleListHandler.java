@@ -38,10 +38,9 @@ public class ArticleListHandler implements PathHandler {
 
             byte[] body = content.getBytes(StandardCharsets.UTF_8);
             return new Response.Builder(Status.OK)
-                    .addHeader("Content-Type", request.getContentType().getMime())
-                    .addHeader("Content-Length", String.valueOf(body.length))
-                    .body(body)
-                    .build();
+                .addContentType(request.getContentType())
+                .body(body)
+                .build();
 
         } catch (IOException e) {
             log.error(e.getMessage());

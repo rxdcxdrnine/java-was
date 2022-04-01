@@ -4,7 +4,6 @@ import model.User;
 import service.UserService;
 import webserver.Request;
 import webserver.Response;
-import webserver.Status;
 import webserver.mapper.Session;
 
 public class UserLoginHandler implements PathHandler {
@@ -16,21 +15,19 @@ public class UserLoginHandler implements PathHandler {
     public Response handle(Request request) {
         try {
             User user = userService.login(
-                    request.getBodyValue("userId"),
-                    request.getBodyValue("password")
+                request.getBodyValue("userId"),
+                request.getBodyValue("password")
             );
 
             String sessionId = session.setUser(user);
 
-            return new Response.Builder(Status.FOUND)
-                    .addHeader("Location", "http://localhost:8080/")
-                    .addHeader("Set-Cookie", "sessionId=" + sessionId + "; Path=/")
-                    .build();
+            return Response.sendRedirect("http://localhost:8080/")
+                .addSession(sessionId, false)
+                .build();
 
         } catch (IllegalArgumentException e) {
-            return new Response.Builder(Status.FOUND)
-                    .addHeader("Location", "http://localhost:8080/user/login_failed.html")
-                    .build();
+            return Response.sendRedirect("http://localhost:8080/user/login_failed.html")
+                .build();
         }
     }
 }

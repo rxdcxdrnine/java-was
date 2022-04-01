@@ -5,7 +5,6 @@ import model.User;
 import service.ArticleService;
 import webserver.Request;
 import webserver.Response;
-import webserver.Status;
 
 public class ArticleCreateHandler implements PathHandler {
 
@@ -19,8 +18,7 @@ public class ArticleCreateHandler implements PathHandler {
         Article article = new Article(user.getName(), request.getBodyValue("content"));
         articleService.write(article);
 
-        return new Response.Builder(Status.FOUND)
-                .addHeader("Location", "http://localhost:8080/")
-                .build();
+        return Response.sendRedirect("http://localhost:8080/")
+            .build();
     }
 }
