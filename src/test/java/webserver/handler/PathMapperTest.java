@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import webserver.Request;
 import webserver.Response;
 import webserver.Status;
-import webserver.mapper.Pair;
 import webserver.mapper.PathMapper;
 import webserver.mapper.PathMapperFactory;
 
@@ -37,8 +36,8 @@ class PathMapperTest {
 
         @Override
         public PathMapper create() {
-            Map<Pair, PathHandler> handlerMap = new HashMap<>() {{
-                put(new Pair("POST", "/user/create"), new UserCreateHandlerStub());
+            Map<String, PathHandler> handlerMap = new HashMap<>() {{
+                put("/user/create", new UserCreateHandlerStub());
             }};
             return new PathMapper(handlerMap, new DefaultFileHandlerStub());
         }

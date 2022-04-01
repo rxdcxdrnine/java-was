@@ -1,16 +1,15 @@
 package webserver.handler;
 
+import static org.assertj.core.api.BDDAssertions.then;
+
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import webserver.Request;
 import webserver.Response;
 import webserver.Status;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.assertj.core.api.BDDAssertions.then;
 
 
 class UserCreateHandlerTest {
@@ -47,11 +46,7 @@ class UserCreateHandlerTest {
 
         // then
         then(response.getStatus()).isEqualTo(Status.FOUND);
-        then(response.getHeader()).containsExactlyInAnyOrderEntriesOf(
-                new HashMap<>() {{
-                    put("Location", "http://localhost:8080/index.html");
-                }}
-        );
+        then(response.getHeader()).contains(Map.entry("Location", "http://localhost:8080/"));
     }
 
 }
