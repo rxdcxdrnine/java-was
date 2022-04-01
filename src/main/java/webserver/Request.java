@@ -2,7 +2,6 @@ package webserver;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import model.User;
 import util.HttpRequestUtils;
 
@@ -113,6 +112,10 @@ public class Request {
 
     public void setSessionUser(User user) {
         this.sessionUser = user;
+    }
+
+    public boolean checkMethod(String method) {
+        return this.method.equals(method);
     }
 
 }

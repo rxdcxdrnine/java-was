@@ -6,12 +6,12 @@ import service.ArticleService;
 import webserver.Request;
 import webserver.Response;
 
-public class ArticleCreateHandler implements PathHandler {
+public class ArticleCreateHandler extends AbstractPathHandler {
 
-    private ArticleService articleService = ArticleService.getInstance();
+    private final ArticleService articleService = ArticleService.getInstance();
 
     @Override
-    public Response handle(Request request) {
+    public Response doPost(Request request) {
         // request 객체의 sessionUser 조회
         User user = request.getSessionUser();
 

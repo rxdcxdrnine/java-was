@@ -14,7 +14,7 @@ import webserver.Request;
 import webserver.Response;
 import webserver.Status;
 
-public class ArticleListHandler implements PathHandler {
+public class ArticleListHandler extends AbstractPathHandler {
 
     private static final Logger log = LoggerFactory.getLogger(ArticleListHandler.class);
     private static final String FILE_PATH = "./webapp/template/qna/list.html";
@@ -22,7 +22,7 @@ public class ArticleListHandler implements PathHandler {
     private final ArticleService articleService = ArticleService.getInstance();
 
     @Override
-    public Response handle(Request request) {
+    public Response doGet(Request request) {
         List<Article> articles = articleService.findArticles();
 
         StringBuilder sb = new StringBuilder();

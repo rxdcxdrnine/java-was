@@ -14,7 +14,7 @@ import webserver.Request;
 import webserver.Response;
 import webserver.Status;
 
-public class UserListHandler implements PathHandler {
+public class UserListHandler extends AbstractPathHandler {
 
     private static final Logger log = LoggerFactory.getLogger(UserListHandler.class);
     private static final String FILE_PATH = "./webapp/template/user/list.html";
@@ -22,7 +22,7 @@ public class UserListHandler implements PathHandler {
     private final UserService userService = UserService.getInstance();
 
     @Override
-    public Response handle(Request request) {
+    public Response doGet(Request request) {
         List<User> users = userService.findUsers();
 
         // TODO: template engine 에 맞게 바꾸기

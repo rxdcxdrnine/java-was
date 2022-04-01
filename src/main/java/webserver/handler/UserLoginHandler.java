@@ -6,13 +6,13 @@ import webserver.Request;
 import webserver.Response;
 import webserver.mapper.Session;
 
-public class UserLoginHandler implements PathHandler {
+public class UserLoginHandler extends AbstractPathHandler {
 
     private final Session session = Session.getInstance();
     private final UserService userService = UserService.getInstance();
 
     @Override
-    public Response handle(Request request) {
+    public Response doPost(Request request) {
         try {
             User user = userService.login(
                 request.getBodyValue("userId"),

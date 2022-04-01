@@ -6,13 +6,13 @@ import webserver.Request;
 import webserver.Response;
 import webserver.mapper.Session;
 
-public class UserCreateHandler implements PathHandler {
+public class UserCreateHandler extends AbstractPathHandler {
 
     private static final Session session = Session.getInstance();
     private static final UserService userService = UserService.getInstance();
 
     @Override
-    public Response handle(Request request) {
+    public Response doPost(Request request) {
 
         try {
             User user = new User(
@@ -34,4 +34,5 @@ public class UserCreateHandler implements PathHandler {
                 .build();
         }
     }
+
 }

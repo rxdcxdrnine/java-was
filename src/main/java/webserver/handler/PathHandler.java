@@ -6,4 +6,5 @@ import webserver.Response;
 public interface PathHandler {
 
     Response handle(Request request);
+
 }

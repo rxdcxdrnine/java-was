@@ -3,10 +3,10 @@ package webserver.handler;
 import webserver.Request;
 import webserver.Response;
 
-public class UserLogoutHandler implements PathHandler {
+public class UserLogoutHandler extends AbstractPathHandler {
 
     @Override
-    public Response handle(Request request) {
+    public Response doGet(Request request) {
         String sessionId = request.getCookieValue("sessionId");
 
         return Response.sendRedirect("http://localhost:8080/")
