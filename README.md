@@ -1,5 +1,8 @@
 # java-was
+
 Java Web Server Project for CodeSquad Members 2022
+
+배포 URL : <https://java-web-server.herokuapp.com/>
 
 <br/>
 <details>
@@ -115,19 +118,33 @@ Java Web Server Project for CodeSquad Members 2022
 
 <br/>
 <details>
-<summary>🖐 웹서버 6 단계 - CSS 응답 및 한 줄 메모장 구현</summary>
+<summary>🤲 웹서버 6 단계 - CSS 응답 및 한 줄 메모장 구현</summary>
 <div markdown="1">
 <br/>
 
 ### 기능요구사항
 
-- [ ] index.html에 로그인한 사용자가 글을 쓸 수 있는 한 줄 메모장을 구현한다.
-- [ ] 로그인하지 않은 사용자도 게시글을 볼 수 있다.
+- [X] index.html에 로그인한 사용자가 글을 쓸 수 있는 한 줄 메모장을 구현한다.
+- [X] 로그인하지 않은 사용자도 게시글을 볼 수 있다.
 
 ### 프로그래밍 요구사항
 
 - [X] stylesheet, image, favicon 등 다양한 MIME 타입을 응답할 수 있도록 구현한다.
-- [ ] 기능 요구사항을 충족할 수 있도록 구현한다.
+- [X] 기능 요구사항을 충족할 수 있도록 구현한다.
+
+<br/>
+</div>
+</details>
+
+<br/>
+<details>
+<summary>🏃‍♂️ 웹 서버 7 단계 - 리팩토링</summary>
+<div markdown="1">
+<br/>
+
+### 프로그래밍 요구사항
+
+- [X] HTTP 웹 서버를 구현하고 보니 소스 코드의 복잡도가 많이 증가했다. 리팩토링을 통해 복잡도를 낮춘다.
 
 <br/>
 </div>
